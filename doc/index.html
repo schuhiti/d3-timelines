@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Timeline with D3</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="module">
+        import { Timeline } from '../src/timeline.js';
+        import { data } from './js/data.js';
+        const option = {
+            width: 800,
+            height: 1200,
+            margin: { top: 20, right: 20, bottom: 20, left: 60 },
+            dateDomain: { min:'1982-12-31', max: '2021-06-30' },
+            axis: {
+                y: { format: '%Y年', ticks: 30 },
+                x: { ticks: undefined }
+            },
+            color: "dimgray",
+            colorScheme: ["#DD0000", "#555555", "#0000FF", "#00EE00"],
+            title: "ゲームハード年表　（）内は前機種発売からの経過年数",
+        }
+
+        const timeline = new Timeline('#container', data, option);
+        timeline.drawVertical();
+    </script>
+</body>
+</html>
